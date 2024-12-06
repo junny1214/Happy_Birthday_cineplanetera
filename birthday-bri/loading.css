@@ -1,0 +1,149 @@
+/* ============================================== Tortita */
+.cake-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background: transparent; /* Fondo transparente */
+}
+
+.cake {
+  display: inline-block;
+  width: 200px;
+  height: 120px;
+  background: linear-gradient(135deg, #ff7eb3, #ff758c);
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  border: none; /* Asegura que no haya bordes */
+}
+
+.cake:after {
+  content: '';
+  position: absolute;
+  bottom: 0; /* Elimina cualquier separación ajustando a 0 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px; /* Ajusta el tamaño proporcionalmente al pastel */
+  height: 15px; /* Ajusta la altura */
+  background: #ff758c; /* Asegúrate de que el color sea consistente */
+  border-radius: 10px;
+  box-shadow: none; /* Elimina sombras adicionales que puedan causar líneas visuales */
+  margin: 0; /* Asegúrate de que no haya márgenes */
+  padding: 0; /* Asegúrate de que no haya padding */
+  border: none; /* Asegúrate de que no haya bordes */
+}
+
+/* Velas */
+.velas {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.vela {
+  width: 10px;
+  height: 40px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.vela:before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, #ffec85, #ff9f43);
+  border-radius: 50%;
+  box-shadow: 0 0 20px 5px rgba(255, 206, 87, 0.6);
+  animation: flicker 1s infinite alternate;
+}
+
+/* Animación de las llamas */
+@keyframes flicker {
+  0% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) scale(0.8);
+    opacity: 0.8;
+  }
+}
+
+/* ============================================== Estilos Responsivos */
+
+/* Para pantallas pequeñas (hasta 767px) */
+@media screen and (max-width: 767px) {
+    /* Ajustar el tamaño de la imagen del banner */
+    .bannar, .balloon-border {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
+
+    /* Centrar el pastel */
+    .cake-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .cake {
+        width: 70%; /* Reducir el tamaño para pantallas pequeñas */
+        max-width: 200px; /* Limitar el tamaño máximo */
+    }
+
+    /* Hacer que los botones se alineen en una sola columna */
+    .navbar button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    /* Ajustar los globos con letras tipo Cinefila */
+    .balloons h2 {
+        font-size: 18px; /* Hacer las letras más pequeñas para pantallas pequeñas */
+        font-family: 'Cinefila', sans-serif; /* Asegurarse de que use la fuente correcta */
+        line-height: 25px; /* Ajustar el espaciado */
+    }
+
+    /* Ajustar el tamaño de las velas */
+    .velas .fuego {
+        width: 8px;
+        height: 15px; /* Reducir la altura */
+    }
+
+    /* Mejorar el diseño del mensaje */
+    .message p {
+        font-size: 18px; /* Hacer el mensaje un poco más grande */
+    }
+
+    /* Hacer la sección del título más pequeña */
+    h2 {
+        font-size: 28px;
+    }
+}
+
+/* Para pantallas más grandes (768px o más) */
+@media screen and (min-width: 768px) {
+    .navbar button {
+        width: auto;
+    }
+    .message p {
+        font-size: 16px;
+    }
+    .balloons h2 {
+        font-size: 30px;
+    }
+}
